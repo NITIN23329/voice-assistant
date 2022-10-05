@@ -44,9 +44,6 @@ const App = () => {
         <br/>
         <br/>
 
-      <div className='left-margin'>
-        <h4 >A resource for exploring recipes</h4>
-      </div>
 
       <div >
       <button className='buttonstyle buttonmargin1' onClick={SpeechRecognition.startListening}>SPEAK</button>
