@@ -1,0 +1,95 @@
+
+.header{
+    color: darkgreen;
+    display: flex;
+    /* justify-content: center; */
+    text-align: center;
+    margin-left: 35%;
+  }
+  
+  .recipeDBLogo{
+    height: 10%;
+    width: 10%;
+    float: left;
+  }
+  .left-margin{
+    margin-left: 10%;
+  }
+  
+  .buttonstyle{
+    background-color:rgb(63, 199, 174);
+    border : rgb(63, 199, 174);
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    padding: 10px 30px;
+    border-radius: 5%;
+   
+  }
+  .buttonmargin1{
+    margin-top :  5%;
+    margin-left:  20%;
+  }
+  .buttonmargin2{
+    margin-top:  5% ;
+    margin-left: 45% ;
+  }
+  .buttonstyle:hover{
+    background-color: rgb(115, 232, 210); /* Green */
+  }
+  .textareastyle{
+    margin-top: 5% ;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    font-size: 30px;
+    background-color:beige;
+    width: 1100px;
+    height: 300px;
+  }
+  
+  
+  
+  @media only screen and (max-width :800px) {
+    .header{
+      margin-left:400px ;
+      font-size:25px;
+    }
+    .buttonmargin1{
+      margin-top:  10%;
+      margin-left: 70%;
+    }
+    .buttonmargin2{
+      margin-top:  10%;
+      margin-left: 70%;
+    }
+    .textareastyle{
+      margin-left: 8%;
+      margin-right: 8%;
+      font-size: 25px;
+      width:1100px;
+    }
+  }
+  @media only screen and (max-width :600px) {
+    .header{
+      margin-left:40% ;
+      font-size:20px;
+    }
+    .buttonstyle{
+      font-size: 20px;
+    }
+    .buttonmargin1{
+      margin-top:  10%;
+      margin-left: 60%;
+    }
+    .buttonmargin2{
+      margin-top:  10%;
+      margin-left: 60%;
+    }
+    .textareastyle{
+      margin-left: 5%;
+      margin-right: 5%;
+      font-size: 20px;
+      width: 700px;
+    }
+  }

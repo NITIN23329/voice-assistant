@@ -1,0 +1,13 @@
+.header{
+    color: darkgreen;
+    display: flex;
+    /* justify-content: center; */
+    text-align: center;
+    margin-left: 35%;
+  }
+  
+.recipeDBLogo{
+    height: 10%;
+    width: 10%;
+    float: left;
+  }
