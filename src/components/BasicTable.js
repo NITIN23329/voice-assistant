@@ -4,7 +4,7 @@ import {COLUMNS} from './columns'
 import './BasicTable.css'
 export const BasicTable = (props) => {
     const jsonData = props.jsonData;
-    console.log('data in BasicTable',jsonData);
+    console.log('data in BasicTable',JSON.stringify(jsonData));
     const columns = useMemo(()=>COLUMNS,[]);
     const data = useMemo(()=>jsonData,[]);
 

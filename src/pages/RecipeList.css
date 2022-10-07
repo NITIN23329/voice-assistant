@@ -10,4 +10,14 @@
     height: 10%;
     width: 10%;
     float: left;
-  }
+}
+.marginForSpinner{
+    margin-top: 20%;
+    margin-left: 43%;
+}
+@media only screen and (max-width :800px) {
+    .marginForSpinner{
+        margin-left: 38%;
+    }
+}
+

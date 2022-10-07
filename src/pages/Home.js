@@ -22,59 +22,15 @@ const Home = (props) =>{
     return <span>Browser doesn't support speech recognition.</span>;
     }
 
-    const [token, setToken] = useState(null)
-
-
-    useEffect(()=>{
-        if(token !== null){
-            axios({
-                method :"GET",
-                url : `https://cosylab.iiitd.edu.in/api/recipeDB/searchrecipe?region=Middle Eastern`,
-                headers:{
-                    'Authorization': 'Bearer '+token,
-                },
-                
-              }).then(res=>{
-            console.log('data got',res);
-            setUserTranscipt("");
-            localStorage.setItem("RecipeListData",JSON.stringify(res))
-            window.open('/search_recipe')
-          }).catch(err=>{
-            console.log('error got',err);
-          })
-        }
-    },[token])
-
     function handleChange(event){
         setUserTranscipt(event.target.value)
-        // handleSubmit(event);
     }
 
 
 
     function handleSubmit(event){
-
-       
-        console.log("user sposked: "+event.target.value);
-         
-          axios({
-            method :"POST",
-            url : `https://cosylab.iiitd.edu.in/api/auth/realms/bootadmin/protocol/openid-connect/token`,
-            headers:{
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            data : {
-                'client_id': 'app-ims',
-                'grant_type': 'password',
-                'username': 'manas',
-                'password': 'manas_cosylab',
-                'scope': 'openid'
-            }
-          }).then(res=>{ 
-            console.log('access token got:',res.data.access_token);
-            setToken(res.data.access_token);
-          })
-
+        window.open('/search_recipe')
+        setUserTranscipt("")
         
     }
 
