@@ -40,28 +40,27 @@ const Home = (props) =>{
     }
 
     return (
-        <div>
-            <img src = {recipeDBLogo} className = "recipeDBLogo"></img>
-            <h1 className='header'> Voice Assistant for RecipeDB</h1>
-            <br/>
-            <br/>
-        <div >
-            
+        <>
+        <img src = {recipeDBLogo} className = "recipeDBLogo"></img>
+        <h1 className='header1 '> Voice Assistant for RecipeDB</h1>
+        
         <button className='buttonstyle buttonmargin1' onClick={SpeechRecognition.startListening}>SPEAK</button>
-            <button className='buttonstyle buttonmargin1' onClick={resetTranscript}>CLEAR</button>
-        </div>
+        <button className='buttonstyle buttonmargin1' onClick={resetTranscript}>CLEAR</button>
 
         <h2 className='left-margin'>{listening ? 'Listening...' : ''}</h2>
         
-        
-        {/* <button onClick={SpeechRecognition.stopListening}>Stop</button> */}
         <form onSubmit={handleSubmit} className='centerdiv'>
             <label >
             <textarea type="text" value={userTranscript} onChange={handleChange} placeholder="Click SPEAK Button to speak something..." className='textareastyle'/>
             </label>
         </form>
+
         <button className='buttonstyle buttonmargin2' onClick={handleSubmit}>SUBMIT</button> 
-        </div>
+        
+        
+       
+        </>
+        
   );
   
     

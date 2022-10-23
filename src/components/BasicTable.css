@@ -1,50 +1,42 @@
 .tablestyle {
-    font-size: large;
+    font-size: 1.2rem;
     border-collapse: collapse;
     width: 95%;
     margin-top: 5%;
-    margin-left: 35px;
+    margin-left: 2rem;
     text-align: center;
 
   }
   
   .tablestyle td, #tablestyle th {
-    border: 2px solid #ddd;
-    padding: 10px;
+    border: 0.1rem solid rgb(176, 176, 176);
+    padding: 0.5rem;
   }
   
   .tablestyle tr:nth-child(even){background-color: #f2f2f2;}
   
   
   .tablestyle th {
-    padding-top: 12px;
-    padding-bottom: 12px;
+    padding: 1rem;
     text-align: center;
     background-color: rgb(12, 118, 86);
     color: white;
   }
-
-@media screen and (max-width: 1000px) {
-    .tablestyle {
-        font-size: medium;
-        border-collapse: collapse;
-        width: 95%;
-        margin-top: 5%;
-        margin-left: 2%;
-    
-      }
-}
-@media only screen and (max-width :800px) {
-    .header{
-      margin-left: 30% ;
-      font-size:25px;
-    }
-
-}
-
-@media only screen and (max-width :600px) {
-    .header{
-      margin-left:30% ;
-      font-size:20px;
-    }
-}
+  .pagenation{
+    font-size: 1rem;
+    border-collapse: collapse;
+    text-align: center;
+  }
+  .buttonstyle1{
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 5%;
+  }
+  .buttonstyle1:enabled{
+    background-color:rgb(63, 199, 174);
+    border : rgb(63, 199, 174);
+    color: white;
+  }

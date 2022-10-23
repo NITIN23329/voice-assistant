@@ -1,5 +1,6 @@
 import React,{useMemo} from 'react'
-import {useTable} from 'react-table'
+import  { Component, useEffect, useState }  from 'react';
+import {useTable, usePagination} from 'react-table'
 import {COLUMNS} from './columns'
 import './BasicTable.css'
 export const BasicTable = (props) => {
@@ -11,38 +12,67 @@ export const BasicTable = (props) => {
     const tableInstance = useTable({
         columns : columns,
         data : data
-    })
+      
+    },usePagination)
     const {getTableProps,
         getTableBodyProps,
         headerGroups,
-        rows,
+        page,
+        nextPage,
+        previousPage,
+        canNextPage,
+        canPreviousPage,
+        pageOptions,
+        state,
+        setPageSize,
         prepareRow} = tableInstance;
+      const {pageIndex,pageSize} = state;
+     
+      const [first,setFirst] = useState(true);
+      // set page size to 20.
+      useEffect(()=>{
+        if(first){
+          setPageSize(20);
+          setFirst(false);
+        }
+      })
+
+      console.log('table props',getTableProps.pageSize);
     
       return (
-        <div >
-          <table className = 'tablestyle' {...getTableProps() } >
-            <thead>
-              {headerGroups.map((headerGroup) => (
-                <tr {...headerGroup.getHeaderGroupProps()}>
-                  {headerGroup.headers.map(column => (
-                    <th {...column.getHeaderProps()}>{column.render('Header')}</th>
-                  ))}
-                </tr>
-              ))}
-            </thead>
-            <tbody {...getTableBodyProps()}>
-              {rows.map(row => {
-                prepareRow(row)
-                return (
-                  <tr {...row.getRowProps()}>
-                    {row.cells.map(cell => {
-                      return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                    })}
+        < >
+          <div>
+            <table   className = 'tablestyle' {...getTableProps() } >
+              <thead>
+                {headerGroups.map((headerGroup) => (
+                  <tr {...headerGroup.getHeaderGroupProps()}>
+                    {headerGroup.headers.map(column => (
+                      <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                    ))}
                   </tr>
-                )
-              })}
-            </tbody>
-          </table>
-        </div>
+                ))}
+              </thead>
+              <tbody {...getTableBodyProps()}>
+                {page.map(row => {
+                  prepareRow(row)
+                  return (
+                    <tr {...row.getRowProps()}>
+                      {row.cells.map(cell => {
+                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
+                      })}
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+          <div className='pagenation'>
+            <span>
+              Page{" "} {pageIndex + 1} of {pageOptions.length}
+            </span>
+            <button disabled = {!canPreviousPage}  className='buttonstyle1' onClick = {()=>previousPage()} >Previous</button>
+            <button disabled = {!canNextPage} className='buttonstyle1' onClick ={()=>nextPage()} >Next</button>
+          </div>
+        </>
       )
 }
