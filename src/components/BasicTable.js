@@ -37,6 +37,11 @@ export const BasicTable = (props) => {
         }
       })
 
+      function onRowClicked(data){
+        console.log('clicked',data.recipe_title);
+        window.open('recipe_info/'+data.recipe_id);
+      }
+
       console.log('table props',getTableProps.pageSize);
     
       return (
@@ -56,10 +61,17 @@ export const BasicTable = (props) => {
                 {page.map(row => {
                   prepareRow(row)
                   return (
-                    <tr {...row.getRowProps()}>
-                      {row.cells.map(cell => {
+                    <tr  {...row.getRowProps()}>
+                      <td onClick={ () => onRowClicked(row.original)} className='recipe_title_color' >{row.original.recipe_title}</td>
+                      <td>{row.original.region}</td>
+                      <td>{row.original.sub_region}</td>
+                      <td>{row.original.servings}</td>
+                      {/* {
+                      row.cells.map(cell => {
                         return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                      })}
+                      })
+                      } */}
+
                     </tr>
                   )
                 })}

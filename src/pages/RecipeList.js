@@ -2,7 +2,7 @@ import React, { Component, useEffect, useState }  from 'react';
 import './RecipeList.css';
 import { BasicTable } from './../components/BasicTable';
 import axios from 'axios'
-import { Audio, Circles, ColorRing, InfinitySpin, ProgressBar, RevolvingDot, Rings, ThreeCircles } from 'react-loader-spinner'
+import {  ColorRing } from 'react-loader-spinner'
 const RecipeList = (props)  => {
     const recipeDBLogo = props.recipeDBLogoLink;
 
@@ -12,7 +12,7 @@ const RecipeList = (props)  => {
         if(!isFirstTime ){
             axios({
                 method :"GET",
-                url : `https://cosylab.iiitd.edu.in/api/recipeDB/searchrecipe?country=Indian`,
+                // url : `https://cosylab.iiitd.edu.in/api/recipeDB/searchrecipe?country=Indian`,
                 url : `http://127.0.0.1:5001/helloworld/india`
                 
               }).then(res=>{

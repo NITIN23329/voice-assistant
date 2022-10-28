@@ -7,7 +7,10 @@
     text-align: center;
 
   }
-  
+  .recipe_title_color{
+    color : #039be5
+    
+  }
   .tablestyle td, #tablestyle th {
     border: 0.1rem solid rgb(176, 176, 176);
     padding: 0.5rem;

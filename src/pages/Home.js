@@ -42,7 +42,7 @@ const Home = (props) =>{
     return (
         <>
         <img src = {recipeDBLogo} className = "recipeDBLogo"></img>
-        <h1 className='header1 '> Voice Assistant for RecipeDB</h1>
+        <h1 className='header1'> Voice Assistant for RecipeDB</h1>
         
         <button className='buttonstyle buttonmargin1' onClick={SpeechRecognition.startListening}>SPEAK</button>
         <button className='buttonstyle buttonmargin1' onClick={resetTranscript}>CLEAR</button>
