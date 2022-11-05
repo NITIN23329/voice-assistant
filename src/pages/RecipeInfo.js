@@ -87,10 +87,15 @@ else
 
             <h2 className='recipeName'> {recipeInfo.recipe_title}</h2>
             <div className='recipeInfo'>
-                <img src = {recipeInfo.img_url} className='recipeImage'></img>
+                <img src = { 'img_url' in recipeInfo ? recipeInfo.img_url :"https://cosylab.iiitd.edu.in/recipedb/static/recipe_temp.jpg"} className='recipeImage'></img>
+                
                 <div className='recipeLocation'>
                     <p className='cuisine'>Cuisine: </p>
                     <p>{recipeInfo.continent}{" >> "}{recipeInfo.region}{" >> "}{recipeInfo.sub_region}</p>
+                    <p className='cuisine'>Preperation Time: </p>
+                    <p>Cooking Time - {recipeInfo.cook_time} minutes, Preperation Time - {recipeInfo.cook_time} minutes</p>
+
+                       
                 </div>
                
                 
