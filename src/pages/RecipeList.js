@@ -7,13 +7,13 @@ const RecipeList = (props)  => {
     const recipeDBLogo = props.recipeDBLogoLink;
 
     const [isFirstTime, setFirstTime] = useState(false);
+    const userTranscript = localStorage.getItem('userTranscript')
 
     useEffect(()=>{
         if(!isFirstTime ){
             axios({
                 method :"GET",
-                // url : `https://cosylab.iiitd.edu.in/api/recipeDB/searchrecipe?country=Indian`,
-                url : `http://127.0.0.1:5001/helloworld/india`
+                url : `http://127.0.0.1:5000/helloworld/` + userTranscript
                 
               }).then(res=>{
             console.log('data got',res.data);

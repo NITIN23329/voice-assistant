@@ -29,7 +29,11 @@ const Home = (props) =>{
 
 
     function handleSubmit(event){
-        window.open('/search_recipe')
+        console.log("user wants to say : ",userTranscript)
+        if(userTranscript.trim().length > 0){
+            window.open('/search_recipe')
+            localStorage.setItem('userTranscript',userTranscript);
+        }
         setUserTranscipt("")
         
     }
