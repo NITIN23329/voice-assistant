@@ -3,8 +3,9 @@ import './RecipeList.css';
 import { BasicTable } from './../components/BasicTable';
 import axios from 'axios'
 import {  ColorRing } from 'react-loader-spinner'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 const RecipeList = (props)  => {
-    const recipeDBLogo = props.recipeDBLogoLink;
 
     const [isFirstTime, setFirstTime] = useState(false);
     const userTranscript = localStorage.getItem('userTranscript')
@@ -25,32 +26,25 @@ const RecipeList = (props)  => {
         }
     },[])
 
-   
 
     const [jsonData,setJsonData] = useState(null);
-        
-    if(jsonData === null)
-        return <div>
-                <img src = {recipeDBLogo} className = "recipeDBLogo"></img>
-                <h1 className='header1'> Voice Assistant for RecipeDB</h1>
-                <br></br>
-                <div className = "marginForSpinner">
-                    <ColorRing
-                    colors={['#309D66','#309D66','#309D66','#309D66','#309D66']}
-                    />
-                </div>
-            
-            </div>
-    else   
-        return (
-            <div>
-                <img src = {recipeDBLogo} className = "recipeDBLogo"></img>
-                <h1 className='header1'> Voice Assistant for RecipeDB</h1>
-                <br/>
-                <BasicTable jsonData = {jsonData} ></BasicTable>
-            </div>
-        );
+    const response = jsonData === null?
+    (
+        <div className = "marginForSpinner">
+            <ColorRing
+            colors={['#309D66','#309D66','#309D66','#309D66','#309D66']}
+            />
+        </div>
+    ):
+    ( <BasicTable jsonData = {jsonData} ></BasicTable>)
 
+    return (<div>
+              <Header></Header>
+                {response}
+                <Footer></Footer>
+        
+        </div>
+        )
     
 }
 

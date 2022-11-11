@@ -2,7 +2,8 @@ import React, { Component, useEffect, useState }  from 'react';
 import './Home.css';
 import axios from 'axios'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
-
+import Footer from '../components/Footer';
+import Header from '../components/Header';
 const Home = (props) =>{
     const {
         transcript,
@@ -12,7 +13,6 @@ const Home = (props) =>{
     } = useSpeechRecognition();
     
     const [userTranscript, setUserTranscipt]  = useState("")
-    const recipeDBLogo = props.recipeDBLogoLink;
 
     useEffect(()=>{
         setUserTranscipt(transcript)
@@ -44,26 +44,25 @@ const Home = (props) =>{
     }
 
     return (
-        <>
-        <img src = {recipeDBLogo} className = "recipeDBLogo"></img>
-        <h1 className='header1'> Voice Assistant for RecipeDB</h1>
-        
-        <button className='buttonstyle buttonmargin1' onClick={SpeechRecognition.startListening}>SPEAK</button>
-        <button className='buttonstyle buttonmargin1' onClick={resetTranscript}>CLEAR</button>
+        <div>
+            <Header></Header>
+            
+            <button className='buttonstyle buttonmargin1' onClick={SpeechRecognition.startListening}>SPEAK</button>
+            <button className='buttonstyle buttonmargin1' onClick={resetTranscript}>CLEAR</button>
 
-        <h2 className='left-margin'>{listening ? 'Listening...' : ''}</h2>
-        
-        <form onSubmit={handleSubmit} className='centerdiv'>
-            <label >
-            <textarea type="text" value={userTranscript} onChange={handleChange} placeholder="Click SPEAK Button to speak something..." className='textareastyle'/>
-            </label>
-        </form>
+            <h2 className='left-margin'>{listening ? 'Listening...' : ''}</h2>
+            
+            <form onSubmit={handleSubmit} className='centerdiv'>
+                <label >
+                <textarea type="text" value={userTranscript} onChange={handleChange} placeholder="Click SPEAK Button to speak something..." className='textareastyle'/>
+                </label>
+            </form>
 
-        <button className='buttonstyle buttonmargin2' onClick={handleSubmit}>SUBMIT</button> 
-        
-        
+            <button className='buttonstyle buttonmargin2' onClick={handleSubmit}>SUBMIT</button> 
+            
+            <Footer></Footer>
        
-        </>
+        </div>
         
   );
   

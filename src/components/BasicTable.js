@@ -45,7 +45,7 @@ export const BasicTable = (props) => {
       console.log('table props',getTableProps.pageSize);
     
       return (
-        < >
+        < div style={{ position: 'relative'}}>
           <div>
             <table   className = 'tablestyle' {...getTableProps() } >
               <thead>
@@ -66,11 +66,7 @@ export const BasicTable = (props) => {
                       <td>{row.original.region}</td>
                       <td>{row.original.sub_region}</td>
                       <td>{row.original.servings}</td>
-                      {/* {
-                      row.cells.map(cell => {
-                        return <td {...cell.getCellProps()}>{cell.render('Cell')}</td>
-                      })
-                      } */}
+
 
                     </tr>
                   )
@@ -85,6 +81,6 @@ export const BasicTable = (props) => {
             <button disabled = {!canPreviousPage}  className='buttonstyle1' onClick = {()=>previousPage()} >Previous</button>
             <button disabled = {!canNextPage} className='buttonstyle1' onClick ={()=>nextPage()} >Next</button>
           </div>
-        </>
+        </div>
       )
 }

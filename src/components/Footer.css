@@ -1,0 +1,10 @@
+
+.footerStyle{
+    text-align: center;
+    background-color: rgb(36, 129, 123);
+    color: white;
+    position: static;
+    bottom: 0px;
+    font-size: 0.5rem;
+    width: 100%;
+  }
