@@ -1,4 +1,4 @@
-Code documentation for frontend:
+# Code documentation for frontend:
 “Apps.js” : This files contains all the pages that our application has. We have 4 different kind of pages : Home Page, Recipe List Page, Recipe Info Page and Contact Page.
 
 “Home.js”: This handles the Home Page of our Applications. It has Routes for all the different pages.
